@@ -73,8 +73,6 @@ return packer.startup(function(use)
   use "p00f/nvim-ts-rainbow"
   use "nvim-treesitter/playground"
   --lsp
-  use "neovim/nvim-lspconfig" --lspconfig
-  use "williamboman/nvim-lsp-installer" --lsp installer
   use "ap/vim-css-color" --css color capabilities.  
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
