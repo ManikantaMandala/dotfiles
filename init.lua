@@ -1,0 +1,8 @@
+require("mani.options")
+require("mani.keymaps")
+require("mani.plugins")
+require("mani.colorscheme")
+require("mani.nvim-notify")
+require("mani.cmp")
+require("mani.telescope")
+require("mani.lsp")
