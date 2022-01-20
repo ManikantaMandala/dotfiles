@@ -1,6 +1,6 @@
 local options ={
 	clipboard = "unnamedplus",
-	cmdheight = 2,
+	cmdheight = 1,
 	fileencoding = "utf-8",
 	hlsearch = true,
 	ignorecase = true,

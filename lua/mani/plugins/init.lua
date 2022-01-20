@@ -45,8 +45,10 @@ return packer.startup(function(use)
   use "wbthomason/packer.nvim" -- Have packer manage itself
   use "nvim-lua/popup.nvim" -- An implementation of the Popup API from vim in Neovim
   use "nvim-lua/plenary.nvim" -- Useful lua functions used ny lots of plugins
+  use "windwp/nvim-autopairs" --auto pairing for backets.
   --color scheme
-  use {"dracula/vim",as="dracula"}        --dracula color scheme
+  use "folke/tokyonight.nvim"   -- tokyonight color scheme.
+  use {"dracula/vim",as="dracula"}        --dracula color scheme 
   --gui-notify
   use "rcarriga/nvim-notify" --gui-notification script
   --vimwiki
@@ -57,6 +59,7 @@ return packer.startup(function(use)
   use "hrsh7th/cmp-path" -- path completions
   use "hrsh7th/cmp-cmdline" -- cmdline completions
   use "saadparwaiz1/cmp_luasnip" -- snippet completions
+  use "hrsh7th/cmp-nvim-lsp" --cmp-nvim-lsp
   -- snippets
   use "L3MON4D3/LuaSnip" --snippet engine
   use "rafamadriz/friendly-snippets" -- a bunch of snippets to use
@@ -65,6 +68,7 @@ return packer.startup(function(use)
   -- Telescope
   use "nvim-telescope/telescope.nvim"
   use "BurntSushi/ripgrep"
+  use "sharkdp/fd"
   --tree-sitter
 	use {
     "nvim-treesitter/nvim-treesitter",
@@ -72,8 +76,14 @@ return packer.startup(function(use)
   }
   use "p00f/nvim-ts-rainbow"
   use "nvim-treesitter/playground"
+
+  use "lewis6991/gitsigns.nvim"
   --lsp
+  use 'neovim/nvim-lspconfig'
+  --css color styling
   use "ap/vim-css-color" --css color capabilities.  
+  --tpope plugins
+  use "tpope/vim-commentary" --for commenting lines in different codes.
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
   if PACKER_BOOTSTRAP then
