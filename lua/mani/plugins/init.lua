@@ -43,50 +43,94 @@ packer.init {
 return packer.startup(function(use)
   --My plugins
   use "wbthomason/packer.nvim" -- Have packer manage itself
+  -- using packer.nvim
+
   use "nvim-lua/popup.nvim" -- An implementation of the Popup API from vim in Neovim
-  use "nvim-lua/plenary.nvim" -- Useful lua functions used ny lots of plugins
-  use "windwp/nvim-autopairs" --auto pairing for backets.
+
+  --use "windwp/nvim-autopairs" --auto pairing for backets.
+  use "jiangmiao/auto-pairs" --auto pairing for backets.
+
+  --use {'akinsho/bufferline.nvim', requires = 'kyazdani42/nvim-web-devicons'} --bufferline at the top. 
+  
   --color scheme
   use "folke/tokyonight.nvim"   -- tokyonight color scheme.
   use {"dracula/vim",as="dracula"}        --dracula color scheme 
+
+  -- navigation
+  use "christoomey/vim-tmux-navigator"
+  use "theprimeagen/harpoon"
+
   --gui-notify
   use "rcarriga/nvim-notify" --gui-notification script
+  
   --vimwiki
-  use "vimwiki/vimwiki" -- vimwiki
-  --cmp plugins
-	use "hrsh7th/nvim-cmp" -- The completion plugin
-  use "hrsh7th/cmp-buffer" -- buffer completions
-  use "hrsh7th/cmp-path" -- path completions
-  use "hrsh7th/cmp-cmdline" -- cmdline completions
-  use "saadparwaiz1/cmp_luasnip" -- snippet completions
-  use "hrsh7th/cmp-nvim-lsp" --cmp-nvim-lsp
-  -- snippets
-  use "L3MON4D3/LuaSnip" --snippet engine
-  use "rafamadriz/friendly-snippets" -- a bunch of snippets to use
+  --use "vimwiki/vimwiki"
+
   --Tagbar
-  use "preservim/tagbar" --give the tags
+  --use "preservim/tagbar" --give the tags
+
   -- Telescope
-  use "nvim-telescope/telescope.nvim"
+  use {
+       'nvim-telescope/telescope.nvim', tag = '0.1.0',
+       --or                            , branch = '0.1.x',
+       requires = { {'nvim-lua/plenary.nvim'} }
+  }
   use "BurntSushi/ripgrep"
   use "sharkdp/fd"
+
   --tree-sitter
-	use {
-    "nvim-treesitter/nvim-treesitter",
-    run = ":TSUpdate",
+  use {
+       "nvim-treesitter/nvim-treesitter",
+       run = ":TSUpdate",
   }
-  use "p00f/nvim-ts-rainbow"
   use "nvim-treesitter/playground"
 
-  use "lewis6991/gitsigns.nvim"
   --lsp
-  use 'neovim/nvim-lspconfig'
+  use {
+       'VonHeikemen/lsp-zero.nvim',
+       requires = {
+            -- LSP Support
+            {'neovim/nvim-lspconfig'},
+            {'williamboman/mason.nvim'},
+            {'williamboman/mason-lspconfig.nvim'},
+
+            -- Autocompletion
+            {'hrsh7th/nvim-cmp'},
+            {'hrsh7th/cmp-buffer'},
+            {'hrsh7th/cmp-path'},
+            {'saadparwaiz1/cmp_luasnip'},
+            {'hrsh7th/cmp-nvim-lsp'},
+            {'hrsh7th/cmp-nvim-lua'},
+
+            -- Snippets
+            {'L3MON4D3/LuaSnip'},
+            {'rafamadriz/friendly-snippets'},
+       }
+  }
+  --use 'mfussenegger/nvim-jdtls'
+
+  --use "p00f/nvim-ts-rainbow"
+  use "lewis6991/gitsigns.nvim"
+
   --css color styling
-  use "ap/vim-css-color" --css color capabilities.  
+  --use "ap/vim-css-color" --css color capabilities.  
+
+  --tracking the file
+  use "mbbill/undotree"
+
   --tpope plugins
   use "tpope/vim-commentary" --for commenting lines in different codes.
+  use "tpope/vim-surround"
+  use "tpope/vim-fugitive"
+
+  -- indent lines for code
+  use "lukas-reineke/indent-blankline.nvim"
+
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
   if PACKER_BOOTSTRAP then
     require("packer").sync()
   end
 end)
+
+-- ("'hello'") world
