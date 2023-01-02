@@ -31,16 +31,18 @@ local options ={
     sidescrolloff = 8,
     updatetime = 50,
     colorcolumn = "80",
+    list = true,
+    listchars = "eol:\\u21b2",
+    spelllang = "en_us",
+    wildmenu = true,
 }
 vim.opt.shortmess:append "c"
 vim.opt.isfname:append("@-@")
+vim.opt.path:append("**")
+vim.opt.complete:append("kspell")
+vim.opt.whichwrap:append("<,>,[,],h,l")
 vim.g.mapleader = " "
 
 for k, v in pairs(options) do
     vim.opt[k] = v
 end
-
-vim.cmd [[set complete+=kspell]]
-vim.cmd [[set spelllang=en_us]]
-vim.cmd "set whichwrap+=<,>,[,],h,l"
-vim.cmd [[set list listchars=eol:\\uebea]]
