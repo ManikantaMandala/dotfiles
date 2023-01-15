@@ -3,132 +3,133 @@ local fn = vim.fn
 -- Automatically install packer
 local install_path = fn.stdpath "data" .. "/site/pack/packer/start/packer.nvim"
 if fn.empty(fn.glob(install_path)) > 0 then
-	PACKER_BOOTSTRAP = fn.system {
-    "git",
-    "clone",
-    "--depth",
-    "1",
-    "https://github.com/wbthomason/packer.nvim",
-    install_path,
-  }
-	print "Installing packer close and reopen Neovim..."
-  vim.cmd [[packadd packer.nvim]]
+    PACKER_BOOTSTRAP = fn.system {
+        "git",
+        "clone",
+        "--depth",
+        "1",
+        "https://github.com/wbthomason/packer.nvim",
+        install_path,
+    }
+    print "Installing packer close and reopen Neovim..."
+    vim.cmd [[packadd packer.nvim]]
 end
 
 --Autocommand that records neovim whenever you save the plugins.lua file
 vim.cmd([[
   augroup packer_user_config
-    autocmd!
-    autocmd BufWritePost init.lua source <afile> | PackerSync
+  autocmd!
+  autocmd BufWritePost init.lua source <afile> | PackerSync
   augroup end
 ]])
 
 --protected call(so we dont error out on first use)
 local status_ok, packer = pcall(require, "packer")
 if not status_ok then
-	print("Packer is not working")
-	return
+    print("Packer is not working")
+    return
 end
 
 --Pop-up window
 packer.init {
-  display = {
-    open_fn = function()
-      return require("packer.util").float { border = "rounded" }
-    end,
-  },
+    display = {
+        open_fn = function()
+            return require("packer.util").float { border = "rounded" }
+        end,
+    },
 }
 
 --Plugins:
 return packer.startup(function(use)
-  --My plugins
-  use "wbthomason/packer.nvim" -- Have packer manage itself
-  -- using packer.nvim
+    --My plugins
+    use "wbthomason/packer.nvim" -- Have packer manage itself
+    -- using packer.nvim
 
-  use "nvim-lua/popup.nvim" -- An implementation of the Popup API from vim in Neovim
+    use "nvim-lua/popup.nvim" -- An implementation of the Popup API from vim in Neovim
 
-  --use "windwp/nvim-autopairs" --auto pairing for backets.
-  use "jiangmiao/auto-pairs" --auto pairing for backets.
+    --use "windwp/nvim-autopairs" --auto pairing for backets.
+    use "jiangmiao/auto-pairs" --auto pairing for backets.
 
-  --use {'akinsho/bufferline.nvim', requires = 'kyazdani42/nvim-web-devicons'} --bufferline at the top. 
-  
-  --color scheme
-  use "folke/tokyonight.nvim"   -- tokyonight color scheme.
-  use {"dracula/vim",as="dracula"}        --dracula color scheme 
+    --use {'akinsho/bufferline.nvim', requires = 'kyazdani42/nvim-web-devicons'} --bufferline at the top. 
 
-  -- navigation
-  use "christoomey/vim-tmux-navigator"
-  use "theprimeagen/harpoon"
+    --color scheme
+    use "folke/tokyonight.nvim"   -- tokyonight color scheme.
+    use {"dracula/vim",as="dracula"}        --dracula color scheme 
+    use 'rose-pine/neovim'
 
-  --gui-notify
-  use "rcarriga/nvim-notify" --gui-notification script
-  
-  --vimwiki
-  --use "vimwiki/vimwiki"
+    -- navigation
+    use "christoomey/vim-tmux-navigator"
+    use "theprimeagen/harpoon"
 
-  --Tagbar
-  --use "preservim/tagbar" --give the tags
+    --gui-notify
+    use "rcarriga/nvim-notify" --gui-notification script
 
-  -- Telescope
-  use {
-       'nvim-telescope/telescope.nvim', tag = '0.1.0',
-       --or                            , branch = '0.1.x',
-       requires = { {'nvim-lua/plenary.nvim'} }
-  }
-  use "BurntSushi/ripgrep"
-  use "sharkdp/fd"
+    --vimwiki
+    --use "vimwiki/vimwiki"
 
-  --tree-sitter
-  use {
-       "nvim-treesitter/nvim-treesitter",
-       run = ":TSUpdate",
-  }
-  use "nvim-treesitter/playground"
+    --Tagbar
+    --use "preservim/tagbar" --give the tags
 
-  --lsp
-  use {
-       'VonHeikemen/lsp-zero.nvim',
-       requires = {
-            -- LSP Support
-            {'neovim/nvim-lspconfig'},
-            {'williamboman/mason.nvim'},
-            {'williamboman/mason-lspconfig.nvim'},
+    -- Telescope
+    use {
+        'nvim-telescope/telescope.nvim', tag = '0.1.0',
+        --or                            , branch = '0.1.x',
+        requires = { {'nvim-lua/plenary.nvim'} }
+    }
+    use "BurntSushi/ripgrep"
+    use "sharkdp/fd"
 
-            -- Autocompletion
-            {'hrsh7th/nvim-cmp'},
-            {'hrsh7th/cmp-buffer'},
-            {'hrsh7th/cmp-path'},
-            {'saadparwaiz1/cmp_luasnip'},
-            {'hrsh7th/cmp-nvim-lsp'},
-            {'hrsh7th/cmp-nvim-lua'},
+    --tree-sitter
+    use {
+        "nvim-treesitter/nvim-treesitter",
+        run = ":TSUpdate",
+    }
+    use "nvim-treesitter/playground"
 
-            -- Snippets
-            {'L3MON4D3/LuaSnip'},
-            {'rafamadriz/friendly-snippets'},
-       }
-  }
-  --use 'mfussenegger/nvim-jdtls'
+    --lsp
+    use {
+        -- 'VonHeikemen/lsp-zero.nvim',
+        -- requires = {
+        -- LSP Support
+        {'neovim/nvim-lspconfig'},
+        {'williamboman/mason.nvim'},
+        {'williamboman/mason-lspconfig.nvim'},
 
-  --use "p00f/nvim-ts-rainbow"
-  use "lewis6991/gitsigns.nvim"
+        -- Autocompletion
+        {'hrsh7th/nvim-cmp'},
+        {'hrsh7th/cmp-buffer'},
+        {'hrsh7th/cmp-path'},
+        {'saadparwaiz1/cmp_luasnip'},
+        {'hrsh7th/cmp-nvim-lsp'},
+        {'hrsh7th/cmp-nvim-lua'},
 
-  --css color styling
-  --use "ap/vim-css-color" --css color capabilities.  
+        -- Snippets
+        {'L3MON4D3/LuaSnip'},
+        {'rafamadriz/friendly-snippets'},
+        -- }
+    }
+    use 'mfussenegger/nvim-jdtls'
 
-  --tracking the file
-  use "mbbill/undotree"
+    --use "p00f/nvim-ts-rainbow"
+    use "lewis6991/gitsigns.nvim"
 
-  --tpope plugins
-  use "tpope/vim-commentary" --for commenting lines in different codes.
-  use "tpope/vim-surround"
-  use "tpope/vim-fugitive"
+    --css color styling
+    --use "ap/vim-css-color" --css color capabilities.  
 
-  -- indent lines for code
-  use "lukas-reineke/indent-blankline.nvim"
+    --tracking the file
+    use "mbbill/undotree"
 
-  -- Automatically set up your configuration after cloning packer.nvim
-  -- Put this at the end after all plugins
-  if PACKER_BOOTSTRAP then
-    require("packer").sync()
-  end
+    --tpope plugins
+    use "tpope/vim-commentary" --for commenting lines in different codes.
+    use "tpope/vim-surround"
+    use "tpope/vim-fugitive"
+
+    -- indent lines for code
+    use "lukas-reineke/indent-blankline.nvim"
+
+    -- Automatically set up your configuration after cloning packer.nvim
+    -- Put this at the end after all plugins
+    if PACKER_BOOTSTRAP then
+        require("packer").sync()
+    end
 end)

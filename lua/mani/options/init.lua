@@ -32,9 +32,9 @@ local options ={
     updatetime = 50,
     colorcolumn = "80",
     list = true,
-    listchars = "eol:\\u21b2",
     spelllang = "en_us",
     wildmenu = true,
+    laststatus = 3,
 }
 vim.opt.shortmess:append "c"
 vim.opt.isfname:append("@-@")
@@ -46,3 +46,12 @@ vim.g.mapleader = " "
 for k, v in pairs(options) do
     vim.opt[k] = v
 end
+
+vim.opt.listchars:append "space:⋅"
+vim.opt.listchars:append "eol:↴"
+
+require("indent_blankline").setup {
+    space_char_blankline = " ",
+    show_current_context = true,
+    show_current_context_start = true,
+}

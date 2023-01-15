@@ -8,5 +8,6 @@ require("mani.harpoon")
 require("mani.undotree")
 require("mani.fugitive")
 require("mani.lsp")
+
 --require("mani.autopairs")
 
