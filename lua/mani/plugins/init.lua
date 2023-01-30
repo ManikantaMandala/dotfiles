@@ -56,7 +56,8 @@ return packer.startup(function(use)
     use "folke/tokyonight.nvim"   -- tokyonight color scheme.
     use {"dracula/vim",as="dracula"}        --dracula color scheme 
     use 'rose-pine/neovim'
-
+    use 'Shatur/neovim-ayu'
+    use 'liuchengxu/space-vim-theme'
     -- navigation
     use "christoomey/vim-tmux-navigator"
     use "theprimeagen/harpoon"
@@ -65,7 +66,7 @@ return packer.startup(function(use)
     use "rcarriga/nvim-notify" --gui-notification script
 
     --vimwiki
-    --use "vimwiki/vimwiki"
+    use "vimwiki/vimwiki"
 
     --Tagbar
     --use "preservim/tagbar" --give the tags

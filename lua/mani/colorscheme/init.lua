@@ -1,5 +1,5 @@
 function ColorMyPencils(color)
-    local colorscheme = "tokyonight-night"
+    local colorscheme = "space_vim_theme"
     color = color or colorscheme
     vim.cmd.colorscheme(color)
 
