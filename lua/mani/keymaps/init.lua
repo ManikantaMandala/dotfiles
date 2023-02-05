@@ -45,7 +45,7 @@ keymap("v", "<A-k>", ":m .-2<CR>==", opts)
 
 --Visual Block
 --Move text up an down
-keymap("x", "<Leader>p", "\"_dp", opts)    
+keymap("x", "<Leader>p", "\"_dp", opts)
 keymap("x", "J", ":move '>+1<CR>gv=gv", opts)
 keymap("x", "<A-j>", ":move '>+1<CR>gv=gv", opts)
 keymap("x", "K", ":move '<-2<CR>gv=gv", opts)

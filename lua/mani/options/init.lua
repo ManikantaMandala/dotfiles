@@ -6,7 +6,7 @@ local options ={
     incsearch = true,
     ignorecase = true,
     pumheight = 15,
-    showmode = true,
+    showmode = false,
     showtabline = 5,
     smartcase = true,
     smartindent = true,
@@ -30,11 +30,11 @@ local options ={
     scrolloff = 8,
     sidescrolloff = 8,
     updatetime = 50,
-    colorcolumn = "80",
     list = true,
     spelllang = "en_us",
     wildmenu = true,
     laststatus = 3,
+    colorcolumn = "80",
 }
 vim.opt.shortmess:append "c"
 vim.opt.isfname:append("@-@")
@@ -55,4 +55,9 @@ require("indent_blankline").setup {
     show_current_context = true,
     show_current_context_start = true,
 }
-vim.api.nvim_command("hi! Cursorline guifg=NONE guibg=#500066")
+local colorsForCursorLine={
+    orange= "#6b2301",
+    magenta= "#500066",
+}
+vim.api.nvim_command("hi! Cursorline guifg=NONE guibg="..colorsForCursorLine.orange)
+-- vim.cmd[[ au BufWinEnter * let w:m2=matchadd('ErrorMsg','\%>80v.\+', -1) ]]

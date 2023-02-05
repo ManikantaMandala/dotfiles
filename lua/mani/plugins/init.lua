@@ -12,7 +12,9 @@ if fn.empty(fn.glob(install_path)) > 0 then
         install_path,
     }
     print "Installing packer close and reopen Neovim..."
-    vim.cmd [[packadd packer.nvim]]
+    vim.cmd [[
+    packadd packer.nvim
+    ]]
 end
 
 --Autocommand that records neovim whenever you save the plugins.lua file
@@ -45,19 +47,29 @@ return packer.startup(function(use)
     use "wbthomason/packer.nvim" -- Have packer manage itself
     -- using packer.nvim
 
+    use {
+        'goolord/alpha-nvim',-- Neovim startUp page
+        requires = { 'nvim-tree/nvim-web-devicons' },
+        config=function()
+            require("mani.startup").setup()
+        end,
+    }
+
     use "nvim-lua/popup.nvim" -- An implementation of the Popup API from vim in Neovim
 
     --use "windwp/nvim-autopairs" --auto pairing for backets.
     use "jiangmiao/auto-pairs" --auto pairing for backets.
 
     --use {'akinsho/bufferline.nvim', requires = 'kyazdani42/nvim-web-devicons'} --bufferline at the top. 
-
+    -- use { "catppuccin/nvim", as = "catppuccin" }
+    use "itchyny/lightline.vim"
     --color scheme
     use "folke/tokyonight.nvim"   -- tokyonight color scheme.
     use {"dracula/vim",as="dracula"}        --dracula color scheme 
     use 'rose-pine/neovim'
     use 'Shatur/neovim-ayu'
     use 'liuchengxu/space-vim-theme'
+
     -- navigation
     use "christoomey/vim-tmux-navigator"
     use "theprimeagen/harpoon"
