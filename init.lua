@@ -8,7 +8,7 @@ require("mani.undotree")
 require("mani.fugitive")
 require("mani.lsp")
 require("mani.colorscheme")
-require("mani.statusBar")
+-- require("mani.statusBar")
 require("mani.startup")
 
 --require("mani.autopairs")
