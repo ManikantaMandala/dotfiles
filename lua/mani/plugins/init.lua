@@ -101,7 +101,7 @@ return packer.startup(function(use)
 
     --lsp
     use {
-        -- 'VonHeikemen/lsp-zero.nvim',
+        'VonHeikemen/lsp-zero.nvim',
         -- requires = {
         -- LSP Support
         {'neovim/nvim-lspconfig'},
@@ -127,7 +127,7 @@ return packer.startup(function(use)
     use "lewis6991/gitsigns.nvim"
 
     --css color styling
-    --use "ap/vim-css-color" --css color capabilities.  
+    use "ap/vim-css-color" --css color capabilities.  
 
     --tracking the file
     use "mbbill/undotree"
@@ -139,6 +139,12 @@ return packer.startup(function(use)
 
     -- indent lines for code
     use "lukas-reineke/indent-blankline.nvim"
+
+    -- Draw structures
+    use "gyim/vim-boxdraw"
+
+    --nvim-ide for dap
+    -- use "ldelossa/nvim-ide"
 
     -- Automatically set up your configuration after cloning packer.nvim
     -- Put this at the end after all plugins

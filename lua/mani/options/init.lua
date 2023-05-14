@@ -49,15 +49,10 @@ end
 
 vim.opt.listchars:append "space:⋅"
 vim.opt.listchars:append "eol:↴"
-
-require("indent_blankline").setup {
-    space_char_blankline = " ",
-    show_current_context = true,
-    show_current_context_start = true,
-}
 local colorsForCursorLine={
     orange= "#6b2301",
     magenta= "#500066",
+    gray= '#434343'
 }
-vim.api.nvim_command("hi! Cursorline guifg=NONE guibg="..colorsForCursorLine.orange)
+vim.api.nvim_command("hi! Cursorline guifg=NONE guibg="..colorsForCursorLine.gray)
 -- vim.cmd[[ au BufWinEnter * let w:m2=matchadd('ErrorMsg','\%>80v.\+', -1) ]]

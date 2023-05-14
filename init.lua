@@ -10,6 +10,7 @@ require("mani.lsp")
 require("mani.colorscheme")
 -- require("mani.statusBar")
 require("mani.startup")
+-- require("mani.nvimide")
 
 --require("mani.autopairs")
 

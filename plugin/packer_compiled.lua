@@ -150,6 +150,11 @@ _G.packer_plugins = {
     path = "/Users/chintu/.local/share/nvim/site/pack/packer/start/lightline.vim",
     url = "https://github.com/itchyny/lightline.vim"
   },
+  ["lsp-zero.nvim"] = {
+    loaded = true,
+    path = "/Users/chintu/.local/share/nvim/site/pack/packer/start/lsp-zero.nvim",
+    url = "https://github.com/VonHeikemen/lsp-zero.nvim"
+  },
   ["mason-lspconfig.nvim"] = {
     loaded = true,
     path = "/Users/chintu/.local/share/nvim/site/pack/packer/start/mason-lspconfig.nvim",
@@ -245,10 +250,20 @@ _G.packer_plugins = {
     path = "/Users/chintu/.local/share/nvim/site/pack/packer/start/undotree",
     url = "https://github.com/mbbill/undotree"
   },
+  ["vim-boxdraw"] = {
+    loaded = true,
+    path = "/Users/chintu/.local/share/nvim/site/pack/packer/start/vim-boxdraw",
+    url = "https://github.com/gyim/vim-boxdraw"
+  },
   ["vim-commentary"] = {
     loaded = true,
     path = "/Users/chintu/.local/share/nvim/site/pack/packer/start/vim-commentary",
     url = "https://github.com/tpope/vim-commentary"
+  },
+  ["vim-css-color"] = {
+    loaded = true,
+    path = "/Users/chintu/.local/share/nvim/site/pack/packer/start/vim-css-color",
+    url = "https://github.com/ap/vim-css-color"
   },
   ["vim-fugitive"] = {
     loaded = true,
