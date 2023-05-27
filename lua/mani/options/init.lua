@@ -41,6 +41,7 @@ vim.opt.isfname:append("@-@")
 vim.opt.path:append("**")
 vim.opt.complete:append("kspell")
 vim.opt.whichwrap:append("<,>,[,],h,l")
+-- vim.opt.virtualedit:append("all")
 vim.g.mapleader = " "
 
 for k, v in pairs(options) do

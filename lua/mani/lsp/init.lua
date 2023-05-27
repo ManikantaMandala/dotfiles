@@ -41,7 +41,12 @@ local on_attach = function(client, bufnr)
     vim.keymap.set('n', '<space>rn', vim.lsp.buf.rename, bufopts)
     vim.keymap.set('n', '<space>ca', vim.lsp.buf.code_action, bufopts)
     vim.keymap.set('n', 'gr', vim.lsp.buf.references, bufopts)
-    vim.keymap.set('n', '<space>f', function() vim.lsp.buf.format { async = true } end, bufopts)
+    vim.keymap.set('n', '<space>gf', function() vim.lsp.buf.format { async = true } end, bufopts)
+    vim.api.nvim_exec([[
+        autocmd CursorHold  <buffer> lua vim.lsp.buf.document_highlight()
+        autocmd CursorHoldI <buffer> lua vim.lsp.buf.document_highlight()
+        autocmd CursorMoved <buffer> lua vim.lsp.buf.clear_references()
+    ]], false)
 end
 
 local cmp = require('cmp')
@@ -64,6 +69,7 @@ capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
 local lspconfig = require('lspconfig')
 
 -- Enable some language servers with the additional completion capabilities offered by nvim-cmp
+capabilities.textDocument.completion.completionItem.snippetSupport = true
 local servers = { 'clangd', 'rust_analyzer', 'pyright', 'tsserver'}
 for _, lsp in ipairs(servers) do
     lspconfig[lsp].setup {
@@ -73,7 +79,6 @@ for _, lsp in ipairs(servers) do
 end
 
 --Enable (broadcasting) snippet capability for completion
-capabilities.textDocument.completion.completionItem.snippetSupport = true
 
 require'lspconfig'.html.setup {
     on_attach = on_attach,

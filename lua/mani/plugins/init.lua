@@ -17,11 +17,13 @@ if fn.empty(fn.glob(install_path)) > 0 then
     ]]
 end
 
+
 --Autocommand that records neovim whenever you save the plugins.lua file
 vim.cmd([[
   augroup packer_user_config
   autocmd!
-  autocmd BufWritePost init.lua source <afile> | PackerSync
+  autocmd BufWritePost $nvim_config/lua/mani/plugins/init.lua source <afile> | PackerSync
+  autocmd BufWritePost init.lua source <afile>
   augroup end
 ]])
 
@@ -102,7 +104,7 @@ return packer.startup(function(use)
     --lsp
     use {
         'VonHeikemen/lsp-zero.nvim',
-        -- requires = {
+        requires = {
         -- LSP Support
         {'neovim/nvim-lspconfig'},
         {'williamboman/mason.nvim'},
@@ -119,7 +121,7 @@ return packer.startup(function(use)
         -- Snippets
         {'L3MON4D3/LuaSnip'},
         {'rafamadriz/friendly-snippets'},
-        -- }
+        }
     }
     use 'mfussenegger/nvim-jdtls'
 
@@ -139,12 +141,18 @@ return packer.startup(function(use)
 
     -- indent lines for code
     use "lukas-reineke/indent-blankline.nvim"
+    use 'jose-elias-alvarez/null-ls.nvim'
+    use 'MunifTanjim/prettier.nvim'
+
 
     -- Draw structures
     use "gyim/vim-boxdraw"
 
     --nvim-ide for dap
     -- use "ldelossa/nvim-ide"
+
+    --Codeium Neovim plugin
+    -- use 'Exafunction/codeium.vim'
 
     -- Automatically set up your configuration after cloning packer.nvim
     -- Put this at the end after all plugins
