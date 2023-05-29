@@ -12,6 +12,7 @@ prettier.setup({
     "javascriptreact",
     "json",
     "less",
+    "lua",
     "markdown",
     "scss",
     "typescript",

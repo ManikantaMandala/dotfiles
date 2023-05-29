@@ -123,7 +123,12 @@ return packer.startup(function(use)
         {'rafamadriz/friendly-snippets'},
         }
     }
+    --mfussenegger plugins
     use 'mfussenegger/nvim-jdtls'
+    use { "rcarriga/nvim-dap-ui", requires = {"mfussenegger/nvim-dap"} }
+
+    --nvim development plugin
+    use 'folke/neodev.nvim'
 
     --use "p00f/nvim-ts-rainbow"
     use "lewis6991/gitsigns.nvim"
