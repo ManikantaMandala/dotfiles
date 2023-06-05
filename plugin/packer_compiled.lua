@@ -170,6 +170,11 @@ _G.packer_plugins = {
     path = "/Users/chintu/.local/share/nvim/site/pack/packer/start/neodev.nvim",
     url = "https://github.com/folke/neodev.nvim"
   },
+  neoformat = {
+    loaded = true,
+    path = "/Users/chintu/.local/share/nvim/site/pack/packer/start/neoformat",
+    url = "https://github.com/sbdchd/neoformat"
+  },
   neovim = {
     loaded = true,
     path = "/Users/chintu/.local/share/nvim/site/pack/packer/start/neovim",
@@ -294,6 +299,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/chintu/.local/share/nvim/site/pack/packer/start/vim-fugitive",
     url = "https://github.com/tpope/vim-fugitive"
+  },
+  ["vim-mermaid"] = {
+    loaded = true,
+    path = "/Users/chintu/.local/share/nvim/site/pack/packer/start/vim-mermaid",
+    url = "https://github.com/craigmac/vim-mermaid"
   },
   ["vim-surround"] = {
     loaded = true,
