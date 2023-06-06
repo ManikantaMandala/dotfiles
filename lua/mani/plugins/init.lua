@@ -69,6 +69,7 @@ return packer.startup(function(use)
 	use({ "dracula/vim", as = "dracula" }) --dracula color scheme
 	use("rose-pine/neovim")
 	use("Shatur/neovim-ayu")
+    use "rebelot/kanagawa.nvim"
 	use("liuchengxu/space-vim-theme")
 
 	-- navigation
@@ -126,6 +127,7 @@ return packer.startup(function(use)
 	--mfussenegger plugins
 	use("mfussenegger/nvim-jdtls")
 	use({ "rcarriga/nvim-dap-ui", requires = { "mfussenegger/nvim-dap" } })
+    use 'mfussenegger/nvim-lint'
 
 	--nvim development plugin
 	use("folke/neodev.nvim")

@@ -145,6 +145,11 @@ _G.packer_plugins = {
     path = "/Users/chintu/.local/share/nvim/site/pack/packer/start/indent-blankline.nvim",
     url = "https://github.com/lukas-reineke/indent-blankline.nvim"
   },
+  ["kanagawa.nvim"] = {
+    loaded = true,
+    path = "/Users/chintu/.local/share/nvim/site/pack/packer/start/kanagawa.nvim",
+    url = "https://github.com/rebelot/kanagawa.nvim"
+  },
   ["lightline.vim"] = {
     loaded = true,
     path = "/Users/chintu/.local/share/nvim/site/pack/packer/start/lightline.vim",
@@ -209,6 +214,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/chintu/.local/share/nvim/site/pack/packer/start/nvim-jdtls",
     url = "https://github.com/mfussenegger/nvim-jdtls"
+  },
+  ["nvim-lint"] = {
+    loaded = true,
+    path = "/Users/chintu/.local/share/nvim/site/pack/packer/start/nvim-lint",
+    url = "https://github.com/mfussenegger/nvim-lint"
   },
   ["nvim-lspconfig"] = {
     loaded = true,
