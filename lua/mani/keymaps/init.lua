@@ -22,8 +22,6 @@ keymap("n", "<Up>", ":resize +2<CR>", opts)
 keymap("n", "<Down>", ":resize -2<CR>", opts)
 keymap("n", "<Left>", ":vertical resize +2<CR>", opts)
 keymap("n", "<Right>", ":vertical resize -2<CR>", opts)
---Opens Explore 
-keymap('n', '<leader>pv', ':Lex %:h<CR><CR>:vertical resize -8<CR>', opts)
 --Terminal commands in nvim
 keymap("n", "<C-d>", "<C-d>zz",opts)
 keymap("n", "<C-u>", "<C-u>zz",opts)
@@ -56,4 +54,8 @@ keymap("n", "<leader>gp", ":Prettier<CR>", opts)
 --keymap("n", "<leader>f", "<cmd>lua require'telescope.builtin'.find_files(require('telescope.themes').get_dropdown({ previewer = false }))<cr>", opts)
 keymap("n", "<C-t>", "<cmd>Telescope live_grep<cr>", opts)
 
+--fugitive
+keymap("n","<leader>gs", ":Git<CR>", opts);
 
+--undotree
+keymap("n","<leader>u", ":UndotreeToggle<CR>",opts)

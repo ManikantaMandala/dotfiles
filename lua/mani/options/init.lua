@@ -25,7 +25,7 @@ local options ={
     cursorline = true,
     number = true,
     relativenumber = true,
-    numberwidth = 3,
+    numberwidth = 1,
     signcolumn = "yes",
     scrolloff = 8,
     sidescrolloff = 8,
@@ -33,7 +33,7 @@ local options ={
     list = true,
     spelllang = "en_us",
     wildmenu = true,
-    laststatus = 3,
+    laststatus = 2,
     colorcolumn = "80",
 }
 vim.opt.shortmess:append "c"

@@ -1,5 +1,5 @@
 function ColorMyPencils(color)
-    local colorscheme = "kanagawa-wave"
+    local colorscheme = "ayu"
     color = color or colorscheme
     vim.cmd.colorscheme(color)
 
