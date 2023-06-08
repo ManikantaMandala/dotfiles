@@ -160,7 +160,7 @@ return packer.startup(function(use)
     use("jose-elias-alvarez/null-ls.nvim")
 
     -- formaters
-    use("MunifTanjim/prettier.nvim")
+    -- use("MunifTanjim/prettier.nvim")
     use("sbdchd/neoformat")
 
     -- Draw structures

@@ -270,11 +270,6 @@ _G.packer_plugins = {
     path = "/Users/chintu/.local/share/nvim/site/pack/packer/start/popup.nvim",
     url = "https://github.com/nvim-lua/popup.nvim"
   },
-  ["prettier.nvim"] = {
-    loaded = true,
-    path = "/Users/chintu/.local/share/nvim/site/pack/packer/start/prettier.nvim",
-    url = "https://github.com/MunifTanjim/prettier.nvim"
-  },
   ripgrep = {
     loaded = true,
     path = "/Users/chintu/.local/share/nvim/site/pack/packer/start/ripgrep",
