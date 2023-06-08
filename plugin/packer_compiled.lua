@@ -155,6 +155,11 @@ _G.packer_plugins = {
     path = "/Users/chintu/.local/share/nvim/site/pack/packer/start/kanagawa.nvim",
     url = "https://github.com/rebelot/kanagawa.nvim"
   },
+  ["leetcode.vim"] = {
+    loaded = true,
+    path = "/Users/chintu/.local/share/nvim/site/pack/packer/start/leetcode.vim",
+    url = "https://github.com/ianding1/leetcode.vim"
+  },
   ["lsp-zero.nvim"] = {
     loaded = true,
     path = "/Users/chintu/.local/share/nvim/site/pack/packer/start/lsp-zero.nvim",

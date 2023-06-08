@@ -40,6 +40,7 @@ function M.setup()
         dashboard.button("<Leader>vc", "  Vim Configuration", ":e ~/.config/nvim<CR>"),
         dashboard.button("<Leader>tc", "  Tmux Configuration", ":e ~/.tmux.conf<CR>"),
         dashboard.button("<Leader>zc", "  zsh Configuration", ":e ~/.zshrc<CR>"),
+        dashboard.button("<Leader>ll", "   Leetcode problem list", ':execute "e ~/.leetcode" <bar> LeetCodeList<CR>'),
         dashboard.button("q", "  Quit Neovim", ":qa<CR>"),
     }
 

@@ -12,7 +12,6 @@ local options ={
     smartindent = true,
     splitbelow = true,
     splitright = true,
-    showcmd = false,
     swf = false,
     backup = false,
     undodir = os.getenv("HOME") .. "/.nvim/undodir",
@@ -44,6 +43,8 @@ vim.opt.complete:append("kspell")
 vim.opt.whichwrap:append("<,>,[,],h,l")
 -- vim.opt.virtualedit:append("all")
 vim.g.mapleader = " "
+vim.g.leetcode_browser = "edge"
+vim.g.leetcode_solution_filetype = "java"
 
 for k, v in pairs(options) do
     vim.opt[k] = v

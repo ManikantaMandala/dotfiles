@@ -96,8 +96,8 @@ return packer.startup(function(use)
     -- Telescope
     use({
         "nvim-telescope/telescope.nvim",
-        tag = "0.1.0",
-        --or                            , branch = '0.1.x',
+        tag = "0.1.1",
+        -- or                            , branch = '0.1.x',
         requires = { { "nvim-lua/plenary.nvim" } },
     })
     use("BurntSushi/ripgrep")
@@ -169,6 +169,9 @@ return packer.startup(function(use)
 
     --nvim-ide for dap
     -- use "ldelossa/nvim-ide"
+
+    --leetcode
+    use "ianding1/leetcode.vim"
 
     --Codeium Neovim plugin -> chatGPT
     -- use 'Exafunction/codeium.vim'
