@@ -12,6 +12,7 @@ local options ={
     smartindent = true,
     splitbelow = true,
     splitright = true,
+    showcmd = false,
     swf = false,
     backup = false,
     undodir = os.getenv("HOME") .. "/.nvim/undodir",

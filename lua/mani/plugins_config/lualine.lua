@@ -1,20 +1,32 @@
 local function window()
-  return vim.api.nvim_win_get_number(0)
+    return vim.api.nvim_win_get_number(0)
 end
 
+local colorscheme = require('mani.plugins_config.colorscheme')
 require('lualine').setup({
-    options={
+    options = {
         icons_enable = true,
-        theme = "ayu",
+        theme = colorscheme,
     },
-    sections={
+    sections = {
         lualine_a = {
+            window,
+            'tabs',
+        },
+        lualine_b = {
             {
                 'filename',
-                path = 1,
             },
-            window
+        },
+        lualine_c = {
+            {
+                'branch',
+                'diff',
+                'diagnostics'
+            }
+        },
+        lualine_x={
+            'filetype'
         }
-    }
+    },
 })
-

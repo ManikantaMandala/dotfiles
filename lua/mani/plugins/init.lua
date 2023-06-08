@@ -76,6 +76,7 @@ return packer.startup(function(use)
     use("folke/tokyonight.nvim")        -- tokyonight color scheme.
     use({ "dracula/vim", as = "dracula" }) --dracula color scheme
     use("Shatur/neovim-ayu")
+    use "ellisonleao/gruvbox.nvim"
     use "rebelot/kanagawa.nvim"
     use("liuchengxu/space-vim-theme")
 

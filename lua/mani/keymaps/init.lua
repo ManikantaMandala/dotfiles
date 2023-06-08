@@ -1,5 +1,5 @@
-local opts = {noremap = true}
-local term_opts ={silent = true}
+local opts = { noremap = true, silent = true }
+local term_opts = { silent = true }
 
 --shorten function name
 local keymap = vim.api.nvim_set_keymap
@@ -23,15 +23,15 @@ keymap("n", "<Down>", ":resize -2<CR>", opts)
 keymap("n", "<Left>", ":vertical resize +2<CR>", opts)
 keymap("n", "<Right>", ":vertical resize -2<CR>", opts)
 --Terminal commands in nvim
-keymap("n", "<C-d>", "<C-d>zz",opts)
-keymap("n", "<C-u>", "<C-u>zz",opts)
-keymap("n", "n", "nzzzv",opts)
-keymap("n", "N", "Nzzzv",opts)
-keymap("n", "<C-f>","<cmd>silent !tmux neww tmux-sessionizer<CR>",opts)
-keymap("n", "<C-k>", "<cmd>cnext<CR>zz",opts)
-keymap("n", "<leader>k", "<cmd>lnext<CR>zz",opts)
-keymap("n", "<leader>j", "<cmd>lprev<CR>zz",opts)
---Visual 
+keymap("n", "<C-d>", "<C-d>zz", opts)
+keymap("n", "<C-u>", "<C-u>zz", opts)
+keymap("n", "n", "nzzzv", opts)
+keymap("n", "N", "Nzzzv", opts)
+keymap("n", "<C-f>", "<cmd>silent !tmux neww tmux-sessionizer<CR>", opts)
+keymap("n", "<C-k>", "<cmd>cnext<CR>zz", opts)
+keymap("n", "<leader>k", "<cmd>lnext<CR>zz", opts)
+keymap("n", "<leader>j", "<cmd>lprev<CR>zz", opts)
+--Visual
 --stay in indent mode
 keymap("v", "<", "<gv", opts)
 keymap("v", ">", ">gv", opts)
@@ -51,11 +51,13 @@ keymap("x", "<A-k>", ":move '<-2<CR>gv=gv", opts)
 --Prettier
 keymap("n", "<leader>gp", ":Prettier<CR>", opts)
 --Telescope
---keymap("n", "<leader>f", "<cmd>lua require'telescope.builtin'.find_files(require('telescope.themes').get_dropdown({ previewer = false }))<cr>", opts)
-keymap("n", "<C-t>", "<cmd>Telescope live_grep<cr>", opts)
+keymap("n", "<leader>lg", "<cmd>Telescope live_grep<cr>", opts)
+
+--nvim-tree
+keymap('n', '<leader>pv', ':NvimTreeFindFileToggle<CR>', opts)
 
 --fugitive
-keymap("n","<leader>gs", ":Git<CR>", opts);
+keymap("n", "<leader>gs", ":Git<CR>", opts);
 
 --undotree
-keymap("n","<leader>u", ":UndotreeToggle<CR>",opts)
+keymap("n", "<leader>u", ":UndotreeToggle<CR>", opts)
