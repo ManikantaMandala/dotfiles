@@ -43,8 +43,10 @@ vim.opt.complete:append("kspell")
 vim.opt.whichwrap:append("<,>,[,],h,l")
 -- vim.opt.virtualedit:append("all")
 vim.g.mapleader = " "
+vim.g.maplocalleader = " "
 vim.g.leetcode_browser = "edge"
 vim.g.leetcode_solution_filetype = "java"
+vim.g.codeium_enabled = false
 
 for k, v in pairs(options) do
     vim.opt[k] = v

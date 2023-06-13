@@ -5,5 +5,4 @@ require("mani.startup")
 -- plugins
 require("mani.plugins_config")
 -- require("mani.neural")
--- require("mani.plugins_config.nvimide")
 

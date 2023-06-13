@@ -39,6 +39,14 @@ packer.init({
         open_fn = function()
             return require("packer.util").float({ border = "rounded" })
         end,
+        working_sym = '🛠️',    -- The symbol for a plugin being installed/updated
+        error_sym = '💣',      -- The symbol for a plugin with an error in installation/updating
+        done_sym = '🎊',       -- The symbol for a plugin which has completed installation/updating
+        removed_sym = '🔥',      -- The symbol for an unused plugin which was removed
+        moved_sym = '🚀',      -- The symbol for a plugin which was moved (e.g. from opt to start)
+        header_sym = '━',     -- The symbol for the header line in packer's display
+        show_all_info = true,   -- Should packer show all update details automatically?
+        prompt_border = 'double', -- Border style of prompt popups.
     },
 })
 
@@ -56,7 +64,7 @@ return packer.startup(function(use)
         end,
     })
 
-    use("nvim-lua/popup.nvim") -- An implementation of the Popup API from vim in Neovim
+    use("nvim-lua/popup.nvim")  -- An implementation of the Popup API from vim in Neovim
 
     use("jiangmiao/auto-pairs") --auto pairing for backets.
 
@@ -73,7 +81,8 @@ return packer.startup(function(use)
     use 'nvim-tree/nvim-tree.lua'
 
     --color scheme
-    use("folke/tokyonight.nvim")        -- tokyonight color scheme.
+    use "ajmwagar/vim-deus"
+    use("folke/tokyonight.nvim")           -- tokyonight color scheme.
     use({ "dracula/vim", as = "dracula" }) --dracula color scheme
     use("Shatur/neovim-ayu")
     use "ellisonleao/gruvbox.nvim"
@@ -135,8 +144,15 @@ return packer.startup(function(use)
 
     --mfussenegger plugins
     use("mfussenegger/nvim-jdtls")
-    use({ "rcarriga/nvim-dap-ui", requires = { "mfussenegger/nvim-dap" } })
+
+    --dap
+    use "mfussenegger/nvim-dap"
+    use "rcarriga/cmp-dap"
+    use "rcarriga/nvim-dap-ui"
     use 'mfussenegger/nvim-lint'
+    use 'theHamsta/nvim-dap-virtual-text'
+    use 'nvim-telescope/telescope-dap.nvim'
+    use 'microsoft/java-debug'
 
     --nvim development plugin
     use("folke/neodev.nvim")
@@ -165,16 +181,14 @@ return packer.startup(function(use)
 
     -- Draw structures
     use("gyim/vim-boxdraw")
+    -- TODO: implement this
     use("craigmac/vim-mermaid")
-
-    --nvim-ide for dap
-    -- use "ldelossa/nvim-ide"
 
     --leetcode
     use "ianding1/leetcode.vim"
 
     --Codeium Neovim plugin -> chatGPT
-    -- use 'Exafunction/codeium.vim'
+    use "Exafunction/codeium.vim"
 
     -- Automatically set up your configuration after cloning packer.nvim
     -- Put this at the end after all plugins

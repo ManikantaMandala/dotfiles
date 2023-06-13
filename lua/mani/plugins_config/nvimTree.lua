@@ -1,5 +1,7 @@
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
+local api = require("nvim-tree.api")
+local Event = api.events.Event
 
 require("nvim-tree").setup()
 

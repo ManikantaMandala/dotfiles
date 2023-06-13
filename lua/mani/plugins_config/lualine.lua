@@ -27,6 +27,13 @@ require('lualine').setup({
         },
         lualine_x={
             'filetype'
+        },
+        lualine_z={
+            {
+                function()
+                    return vim.fn["codeium#GetStatusString"]()
+                end
+            }
         }
     },
 })
