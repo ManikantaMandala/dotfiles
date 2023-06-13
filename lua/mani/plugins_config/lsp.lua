@@ -1,4 +1,4 @@
-local servers = { "eslint", "grammarly", "jsonls", "lua_ls", "sqlls", "tsserver", "rust_analyzer" }
+local servers = { "eslint", "grammarly", "jsonls", "lua_ls","tsserver", "rust_analyzer" }
 require("mason").setup({
     ui = {
         icons = {

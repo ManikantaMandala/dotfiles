@@ -2,7 +2,7 @@
 local jdtls_dir = vim.fn.stdpath("data") .. "/mason/packages/jdtls"
 local config_dir = jdtls_dir .. "/config_mac"
 local plugins_dir = jdtls_dir .. "/plugins/"
-local path_to_jar = plugins_dir .. "/org.eclipse.equinox.launcher_1.6.400.v20210924-0641.jar"
+local path_to_jar = plugins_dir .. "org.eclipse.equinox.launcher_1.6.400.v20210924-0641.jar"
 local path_to_lombak = jdtls_dir .. "/lombok.jar"
 local path_to_debug = vim.fn.stdpath("data") ..
 "/site/pack/packer/start/java-debug/com.microsoft.java.debug.plugin/target"
@@ -77,15 +77,11 @@ local config = {
                 runtimes = {
                     {
                         name = "JavaSE-11",
-                        path = "/opt/homebrew/opt/openjdk@11",
+                        path = "/usr/lib/jvm/java-1.11.0-openjdk-amd64",
                     },
                     {
                         name = "JavaSE-17",
-                        path = "/opt/homebrew/opt/openjdk@17",
-                    },
-                    {
-                        name = "JavaSE-20",
-                        path = "/opt/homebrew/opt/openjdk@20",
+                        path = "/usr/lib/jvm/java-1.17.0-openjdk-amd64",
                     },
                 },
                 signatureHelp = { enabled = true },

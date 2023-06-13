@@ -47,6 +47,10 @@ vim.g.maplocalleader = " "
 vim.g.leetcode_browser = "edge"
 vim.g.leetcode_solution_filetype = "java"
 vim.g.codeium_enabled = false
+vim.g.python3_host_prog = '/usr/bin/python3'
+vim.g.loaded_perl_provider = 0
+vim.g.loaded_ruby_provider = 0
+
 
 for k, v in pairs(options) do
     vim.opt[k] = v
