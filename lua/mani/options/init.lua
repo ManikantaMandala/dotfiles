@@ -16,7 +16,7 @@ local options ={
     backup = false,
     undodir = os.getenv("HOME") .. "/.nvim/undodir",
     undofile = true,
-    wrap = false,
+    wrap = true,
     termguicolors = true,
     expandtab = true,
     shiftwidth = 4,
@@ -32,6 +32,7 @@ local options ={
     updatetime = 50,
     list = true,
     spelllang = "en_us",
+    spell = true,
     wildmenu = true,
     laststatus = 2,
     colorcolumn = "80",
@@ -50,7 +51,11 @@ vim.g.codeium_enabled = false
 vim.g.python3_host_prog = '/usr/bin/python3'
 vim.g.loaded_perl_provider = 0
 vim.g.loaded_ruby_provider = 0
-
+vim.g.vimwiki_list = {{
+    path = '~/vimwiki/',
+    syntax = 'markdown',
+    ext = '.md'
+}}
 
 for k, v in pairs(options) do
     vim.opt[k] = v

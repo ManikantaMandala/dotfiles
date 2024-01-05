@@ -1,4 +1,4 @@
-local colorscheme = "kanagawa"
+local colorscheme = "ayu"
 function ColorMyPencils(color)
     color = color or colorscheme
     vim.cmd.colorscheme(color)

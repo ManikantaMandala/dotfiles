@@ -170,11 +170,6 @@ _G.packer_plugins = {
     path = "/home/babby/.local/share/nvim/site/pack/packer/start/kanagawa.nvim",
     url = "https://github.com/rebelot/kanagawa.nvim"
   },
-  ["leetcode.vim"] = {
-    loaded = true,
-    path = "/home/babby/.local/share/nvim/site/pack/packer/start/leetcode.vim",
-    url = "https://github.com/ianding1/leetcode.vim"
-  },
   ["lsp-zero.nvim"] = {
     loaded = true,
     path = "/home/babby/.local/share/nvim/site/pack/packer/start/lsp-zero.nvim",
@@ -195,6 +190,14 @@ _G.packer_plugins = {
     path = "/home/babby/.local/share/nvim/site/pack/packer/start/mason.nvim",
     url = "https://github.com/williamboman/mason.nvim"
   },
+  ["md-to-html.nvim"] = {
+    commands = { "MarkdownToHTML", "NewMarkdownToHTML" },
+    loaded = false,
+    needs_bufread = false,
+    only_cond = false,
+    path = "/home/babby/.local/share/nvim/site/pack/packer/opt/md-to-html.nvim",
+    url = "https://github.com/realprogrammersusevim/md-to-html.nvim"
+  },
   ["neodev.nvim"] = {
     loaded = true,
     path = "/home/babby/.local/share/nvim/site/pack/packer/start/neodev.nvim",
@@ -209,6 +212,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/babby/.local/share/nvim/site/pack/packer/start/neovim-ayu",
     url = "https://github.com/Shatur/neovim-ayu"
+  },
+  ["neuleetcode.vim"] = {
+    loaded = true,
+    path = "/home/babby/.local/share/nvim/site/pack/packer/start/neuleetcode.vim",
+    url = "https://github.com/mbledkowski/neuleetcode.vim"
   },
   ["null-ls.nvim"] = {
     loaded = true,
@@ -377,6 +385,25 @@ time([[Defining packer_plugins]], false)
 time([[Config for alpha-nvim]], true)
 try_loadstring("\27LJ\2\n:\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\17mani.startup\frequire\0", "config", "alpha-nvim")
 time([[Config for alpha-nvim]], false)
+
+-- Command lazy-loads
+time([[Defining lazy-load commands]], true)
+pcall(vim.api.nvim_create_user_command, 'MarkdownToHTML', function(cmdargs)
+          require('packer.load')({'md-to-html.nvim'}, { cmd = 'MarkdownToHTML', l1 = cmdargs.line1, l2 = cmdargs.line2, bang = cmdargs.bang, args = cmdargs.args, mods = cmdargs.mods }, _G.packer_plugins)
+        end,
+        {nargs = '*', range = true, bang = true, complete = function()
+          require('packer.load')({'md-to-html.nvim'}, {}, _G.packer_plugins)
+          return vim.fn.getcompletion('MarkdownToHTML ', 'cmdline')
+      end})
+pcall(vim.api.nvim_create_user_command, 'NewMarkdownToHTML', function(cmdargs)
+          require('packer.load')({'md-to-html.nvim'}, { cmd = 'NewMarkdownToHTML', l1 = cmdargs.line1, l2 = cmdargs.line2, bang = cmdargs.bang, args = cmdargs.args, mods = cmdargs.mods }, _G.packer_plugins)
+        end,
+        {nargs = '*', range = true, bang = true, complete = function()
+          require('packer.load')({'md-to-html.nvim'}, {}, _G.packer_plugins)
+          return vim.fn.getcompletion('NewMarkdownToHTML ', 'cmdline')
+      end})
+time([[Defining lazy-load commands]], false)
+
 
 _G._packer.inside_compile = false
 if _G._packer.needs_bufread == true then

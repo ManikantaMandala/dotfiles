@@ -21,8 +21,7 @@ end
 vim.cmd([[
   augroup packer_user_config
   autocmd!
-  autocmd BufWritePost $nvim_config/lua/mani/plugins/init.lua source <afile> | PackerSync
-  autocmd BufWritePost init.lua source <afile>
+  autocmd BufWritePost init.lua source <afile> | PackerSync
   augroup end
 ]])
 
@@ -75,6 +74,10 @@ return packer.startup(function(use)
     use {
         'nvim-lualine/lualine.nvim',
         requires = { 'nvim-tree/nvim-web-devicons', opt = true }
+    }
+    use {
+        'realprogrammersusevim/md-to-html.nvim',
+        cmd = { 'MarkdownToHTML', 'NewMarkdownToHTML' },
     }
 
     --nerdtree
@@ -185,7 +188,7 @@ return packer.startup(function(use)
     use("craigmac/vim-mermaid")
 
     --leetcode
-    use "ianding1/leetcode.vim"
+    use "mbledkowski/neuleetcode.vim"
 
     --Codeium Neovim plugin -> chatGPT
     use "Exafunction/codeium.vim"
