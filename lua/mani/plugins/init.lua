@@ -68,6 +68,9 @@ return packer.startup(function(use)
 
     use("jiangmiao/auto-pairs") --auto pairing for backets.
 
+    use {"akinsho/toggleterm.nvim", tag = '*', config = function()
+        require("toggleterm").setup()
+    end}   
     --use {'akinsho/bufferline.nvim', requires = 'kyazdani42/nvim-web-devicons'} --bufferline at the top.
     -- use { "catppuccin/nvim", as = "catppuccin" }
 
