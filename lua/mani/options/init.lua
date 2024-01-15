@@ -1,4 +1,4 @@
-local options ={
+ local options ={
     clipboard = "unnamedplus",
     cmdheight = 1,
     fileencoding = "utf-8",
@@ -16,7 +16,7 @@ local options ={
     backup = false,
     undodir = os.getenv("HOME") .. "/.nvim/undodir",
     undofile = true,
-    wrap = false,
+    wrap = true,
     termguicolors = true,
     expandtab = true,
     shiftwidth = 4,

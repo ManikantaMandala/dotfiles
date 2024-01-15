@@ -2,11 +2,11 @@ local function window()
     return vim.api.nvim_win_get_number(0)
 end
 
-local colorscheme = require('mani.plugins_config.colorscheme')
+local colorschema = require('mani.plugins_config.colorschema')
 require('lualine').setup({
     options = {
         icons_enable = true,
-        theme = colorscheme,
+        theme = colorschema,
     },
     sections = {
         lualine_a = {

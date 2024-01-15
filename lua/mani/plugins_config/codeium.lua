@@ -9,3 +9,4 @@ function toggle_codeium()
         codeium_en_var = not codeium_en_var
     end
 end
+
