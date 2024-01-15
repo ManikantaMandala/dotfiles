@@ -37,9 +37,6 @@ require("lazy").setup({
 		cmd = { 'MarkdownToHTML', 'NewMarkdownToHTML' },
 	},
 
-	--nerdtree
-	'nvim-tree/nvim-tree.lua',
-
 	--color scheme
 	"ajmwagar/vim-deus",
 	"folke/tokyonight.nvim",           -- tokyonight color scheme.,

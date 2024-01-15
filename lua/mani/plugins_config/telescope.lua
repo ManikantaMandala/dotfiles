@@ -3,7 +3,7 @@ vim.keymap.set('n', '<leader>ff', builtin.find_files, {})
 vim.keymap.set('n', '<C-p>', builtin.git_files, {})
 vim.keymap.set('n', '<leader>tk', builtin.keymaps, {})
 vim.keymap.set("n", "<leader>cbff", function()
-    require("telescope.builtin").current_buffer_fuzzy_find(require("telescope.themes").get_dropdown({
+    builtin.current_buffer_fuzzy_find(require("telescope.themes").get_dropdown({
         winblend = 10,
         previewer = false,
     }))
