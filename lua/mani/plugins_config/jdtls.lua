@@ -1,4 +1,4 @@
 return {
-	'mfussenegger/nvim-jdtl',
+	'mfussenegger/nvim-jdtls',
 	lasy = true
 }
