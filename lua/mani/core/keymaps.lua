@@ -67,10 +67,10 @@ keymap("v", "<A-k>", "<cmd>m .-2<CR>==", opts)
 --Visual Block
 --Move text up an down
 keymap("x", "<Leader>p", '\"_dp', opts)
-keymap("x", "J", "<cmd>move '>+1<CR>gv=gv", keymap_description("indent the selected block if moved upward [J]"))
-keymap("x", "<A-j>", "<cmd>move '>+1<CR>gv=gv", opts)
-keymap("x", "K", "<cmd>move '<-2<CR>gv=gv",keymap_description("indent the selected block if moved downward [K]"))
-keymap("x", "<A-k>", "<cmd>move '<-2<CR>gv=gv", opts)
+keymap("x", "J", ":move '>+1<CR>gv=gv", keymap_description("indent the selected block if moved upward [J]"))
+keymap("x", "<A-j>", ":move '>+1<CR>gv=gv", opts)
+keymap("x", "K", ":move '<-2<CR>gv=gv",keymap_description("indent the selected block if moved downward [K]"))
+keymap("x", "<A-k>", ":move '<-2<CR>gv=gv", opts)
 
 --Insert mode
 --codeium
