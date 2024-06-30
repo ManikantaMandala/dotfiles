@@ -13,5 +13,13 @@ vim.opt.rtp:prepend(lazypath)
 
 -- Example using a list of specs with the default options
 vim.g.mapleader = " " -- Make sure to set `mapleader` before lazy so your mappings are correct
+vim.g.maplocalleader = " "
 
-require("lazy").setup('mani.plugins_config')
+require("lazy").setup({
+	spec = 'mani.plugins_config',
+	change_detection = {
+		-- automatically check for config file changes and reload the ui
+		enabled = true,
+		notify = false, -- get a notification when changes are found
+	},
+})

@@ -1,3 +1,3 @@
 return {
-	'BurntSushi/ripgrep'
+	'BurntSushi/ripgrep',
 }

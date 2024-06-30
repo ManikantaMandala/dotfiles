@@ -10,8 +10,5 @@
     ---- TODO: implement this
     --use("craigmac/vim-mermaid")
 
-    ----leetcode
-    --use "mbledkowski/neuleetcode.vim"
-
     ----Codeium Neovim plugin -> chatGPT
     --use "Exafunction/codeium.vim"

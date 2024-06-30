@@ -17,6 +17,7 @@ local keymap = vim.api.nvim_set_keymap
 --command => "c"
 
 -- Normal --
+keymap("n", "<Esc>", "<cmd>nohlsearch<CR>", keymap_description("no highlight search after escape"))
 -- Resize with arrows:
 keymap("n", "<Up>", "<cmd>resize +2<CR>", keymap_description("make the current buffer bigger by increasing vertically upward"))
 keymap("n", "<Down>", "<cmd>resize -2<CR>", keymap_description("make the current buffer bigger by increasing vertically downward"))
@@ -28,6 +29,7 @@ keymap("n", "<C-u>", "<C-u>zz", opts)
 keymap("n", "n", "nzzzv", opts)
 keymap("n", "N", "Nzzzv", opts)
 keymap("n", "<C-f>", "<cmd>silent !tmux neww tmux-sessionizer<CR>",keymap_description("make new tmux sessionizer") )
+keymap("n", "<C-j>", "<cmd>cp<CR>zz", opts)
 keymap("n", "<C-k>", "<cmd>cnext<CR>zz", opts)
 keymap("n", "<leader>k", "<cmd>lnext<CR>zz", opts)
 keymap("n", "<leader>j", "<cmd>lprev<CR>zz", opts)
@@ -36,14 +38,14 @@ keymap("n", "<leader>ll", '<cmd>execute "e ~/.leetcode" <bar> LeetCodeList<CR>',
 -- open current buffer in new tab
 keymap("n", "<leader>t", "<cmd>tabedit %<CR>",  keymap_description("make the current buffer to open in new tab"))
 --get Prettier(gp)
-keymap("n", "<leader>gp", "<cmd>Prettier<CR>", keymap_description("[G]et [P]rettier file"))
+-- keymap("n", "<leader>gp", "<cmd>Prettier<CR>", keymap_description("[G]et [P]rettier file"))
 
 --Telescope live grep(lg)
 keymap("n", "<leader>lg", "<cmd>Telescope live_grep<cr>", keymap_description("open [L]ive [G]rep"))
-keymap("n", "<leader>bi", "<cmd>Telescope builtin<cr>", keymap_description("open [L]ive [G]rep"))
+keymap("n", "<leader>bi", "<cmd>Telescope builtin<cr>", keymap_description("open [B]uilt [I]n"))
 
---nvim-tree findFIleToggle
-keymap('n', '<leader>pv', '<cmd>NvimTreeFindFileToggle<CR>', keymap_description("open [P]re[V]iew of directory"))
+--nvim-tree find file toggle
+keymap('n', '<leader>pv', '<cmd>Oil<CR>', keymap_description("open [P]re[V]iew of directory"))
 
 --fugitive git status(gs)
 keymap("n", "<leader>gs", "<cmd>Git<CR>", keymap_description("show the [G]it [S]tatus"));
@@ -66,7 +68,7 @@ keymap("v", "<A-k>", "<cmd>m .-2<CR>==", opts)
 
 --Visual Block
 --Move text up an down
-keymap("x", "<Leader>p", '\"_dp', opts)
+keymap("x", "<Leader>dp", '\"_dp', opts)
 keymap("x", "J", ":move '>+1<CR>gv=gv", keymap_description("indent the selected block if moved upward [J]"))
 keymap("x", "<A-j>", ":move '>+1<CR>gv=gv", opts)
 keymap("x", "K", ":move '<-2<CR>gv=gv",keymap_description("indent the selected block if moved downward [K]"))
@@ -74,7 +76,7 @@ keymap("x", "<A-k>", ":move '<-2<CR>gv=gv", opts)
 
 --Insert mode
 --codeium
-vim.keymap.set('i', '<Right>', function () return vim.fn['codeium#Accept']() end, {desc= "[C]odeium [A]ccept", expr = true})
-vim.keymap.set('i', '<C-l>', function() return vim.fn['codeium#CycleCompletions'](1) end, {desc="[C]odeium next in the list [L]->{vim notions}", expr = true})
-vim.keymap.set('i', '<C-h>', function() return vim.fn['codeium#CycleCompletions'](-1) end, {desc= "[C]odeium previous in the list [H]->{vim notions}", expr = true})
-vim.keymap.set('i', '<C-x>', function() return vim.fn['codeium#Clear']() end, {desc = "[C]odeium clear", expr = true})
+-- vim.keymap.set('i', '<Tab>', function () return vim.fn['codeium#Accept']() end, {desc= "[C]odeium [A]ccept", expr = true})
+-- vim.keymap.set('i', '<C-n>', function() return vim.fn['codeium#CycleCompletions'](1) end, {desc="[C]odeium next in the list [L]->{vim notions}", expr = true})
+-- vim.keymap.set('i', '<C-p>', function() return vim.fn['codeium#CycleCompletions'](-1) end, {desc= "[C]odeium previous in the list [H]->{vim notions}", expr = true})
+-- vim.keymap.set('i', '<C-x>', function() return vim.fn['codeium#Clear']() end, {desc = "[C]odeium clear", expr = true})

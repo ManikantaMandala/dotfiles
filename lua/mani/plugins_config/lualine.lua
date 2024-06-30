@@ -10,48 +10,54 @@ return {
         end
 
         local colors = require("mani.color-my-pencils")
-        local colorscheme = require(colors..".colors")
+        -- local colorscheme = require(colors..".colors")
         local colors = {
             blue = "#65D1FF",
             green = "#3EFFDC",
             violet = "#FF61EF",
+            magenta = "#FF00FF",
             yellow = "#FFDA7B",
             red = "#FF4A4A",
             fg = "#c3ccdc",
             bg = "#112638",
-            inactive_bg = "#2c3043",
+            inactive_bg = "green",
         }
 
         local my_lualine_theme = {
             normal = {
-                a = { bg = colorscheme.bg, fg = colorscheme.fg, gui = "bold" },
-                b = { bg = colorscheme.bg, fg = colorscheme.fg },
-                c = { bg = colorscheme.bg, fg = colorscheme.fg },
+                a = { bg = colors.bg, fg = colors.fg, gui = "bold" },
+                b = { bg = colors.bg, fg = colors.fg },
+                c = { bg = colors.bg, fg = colors.fg },
             },
             insert = {
-                a = { bg = colors.green, fg = colorscheme.bg, gui = "bold" },
-                b = { bg = colorscheme.bg, fg = colorscheme.fg },
-                c = { bg = colorscheme.bg, fg = colorscheme.fg },
+                a = { bg = colors.red, fg = colors.bg, gui = "bold" },
+                b = { bg = colors.bg, fg = colors.fg },
+                c = { bg = colors.bg, fg = colors.fg },
             },
             visual = {
-                a = { bg = colors.blue, fg = colorscheme.bg, gui = "bold" },
-                b = { bg = colorscheme.bg, fg = colorscheme.fg },
-                c = { bg = colorscheme.bg, fg = colorscheme.fg },
+                a = { bg = colors.blue, fg = colors.bg, gui = "bold" },
+                b = { bg = colors.bg, fg = colors.fg },
+                c = { bg = colors.bg, fg = colors.fg },
             },
             command = {
-                a = { bg = colors.yellow, fg = colorscheme.bg, gui = "bold" },
-                b = { bg = colorscheme.bg, fg = colorscheme.fg },
-                c = { bg = colorscheme.bg, fg = colorscheme.fg },
+                a = { bg = colors.yellow, fg = colors.bg, gui = "bold" },
+                b = { bg = colors.bg, fg = colors.fg },
+                c = { bg = colors.bg, fg = colors.fg },
             },
             replace = {
-                a = { bg = colors.red, fg = colorscheme.bg, gui = "bold" },
-                b = { bg = colorscheme.bg, fg = colorscheme.fg },
-                c = { bg = colorscheme.bg, fg = colorscheme.fg },
+                a = { bg = colors.red, fg = colors.bg, gui = "bold" },
+                b = { bg = colors.red, fg = colors.fg },
+                c = { bg = colors.bg, fg = colors.fg },
+            },
+            active ={
+                a = { bg = colors.bg, fg = colors.semilightgray, gui = "bold" },
+                b = { bg = colors.bg, fg = colors.semilightgray },
+                c = { bg = colors.bg, fg = colors.semilightgray },
             },
             inactive = {
-                a = { bg = colors.inactive_bg, fg = colorscheme.semilightgray, gui = "bold" },
-                b = { bg = colorscheme.inactive_bg, fg = colorscheme.semilightgray },
-                c = { bg = colorscheme.inactive_bg, fg = colorscheme.semilightgray },
+                a = { bg = colors.bg, fg = colors.semilightgray, gui = "bold" },
+                b = { bg = colors.bg, fg = colors.semilightgray },
+                c = { bg = colors.bg, fg = colors.semilightgray },
             },
         }
 
