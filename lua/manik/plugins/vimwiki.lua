@@ -1,9 +1,9 @@
 return {
-    'vimwiki/vimwiki',
-    dependencies ={
-        'mattn/calendar-vim'
-    },
-    init = function()
+	"vimwiki/vimwiki",
+	dependencies = {
+		"mattn/calendar-vim"
+	},
+	init = function()
         vim.g.vimwiki_list = {
             {
                 path = '~/vimwiki',

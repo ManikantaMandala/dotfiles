@@ -7,7 +7,7 @@ local options ={
 	ignorecase = true,
 	pumheight = 15,
 	showmode = false,
-	showtabline = 2,
+	showtabline = 1,
 	smartcase = true,
 	smartindent = true,
 	splitbelow = true,
@@ -45,6 +45,7 @@ vim.opt.path:append("**")
 vim.opt.complete:append("kspell")
 vim.opt.whichwrap:append("<,>,[,],h,l")
 -- vim.opt.virtualedit:append("all")
+
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 vim.g.leetcode_browser = "edge"
@@ -57,20 +58,30 @@ vim.g.loaded_ruby_provider = 0
 for k, v in pairs(options) do
 	vim.opt[k] = v
 end
+
 vim.opt.guicursor= 'n-v-c-sm:block,i-ci-ve:block,r-cr-o:block'
+
 local colorsForCursorLine={
 	orange= "#6b2301",
 	magenta= "#500066",
-	gray= '#434343'
+	gray= '#434343',
+	red= "#FF0000",
+	black = "000000"
 }
+
 vim.api.nvim_create_autocmd('TextYankPost', {
-  desc = 'Highlight when yanking (copying) text',
-  group = vim.api.nvim_create_augroup('kickstart-highlight-yank', { clear = true }),
-  callback = function()
-    vim.highlight.on_yank()
-  end,
+	desc = 'Highlight when yanking (copying) text',
+	group = vim.api.nvim_create_augroup(
+		'kickstart-highlight-yank',
+		{ clear = true }
+	),
+	callback = function()
+		vim.highlight.on_yank {
+			higroup='IncSearch'
+		}
+	end,
 })
-vim.api.nvim_command("hi Cursorline guifg=NONE guibg="..colorsForCursorLine.orange)
+vim.api.nvim_command("hi IncSearch guifg=" .. colorsForCursorLine.red)
 -- vim.api.nvim_command("highlight Cursor gui=NONE guifg="..colorsForCursorLine.gray
 --         .." guibg="..colorsForCursorLine.magenta)
 -- vim.cmd[[ au BufWinEnter * let w:m2=matchadd('ErrorMsg','\%>80v.\+', -1) ]]

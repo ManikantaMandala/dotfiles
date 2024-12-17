@@ -1,5 +1,6 @@
 return {
     "nvim-lualine/lualine.nvim",
+	-- enabled = false,
     dependencies = { "nvim-tree/nvim-web-devicons" },
     config = function()
         local lualine = require("lualine")
@@ -9,8 +10,11 @@ return {
             return vim.api.nvim_win_get_number(0)
         end
 
-        local colors = require("mani.color-my-pencils")
-        -- local colorscheme = require(colors..".colors")
+		-- TODO: configure lualine according to the colorscheme
+        -- local colors = require("manik.setup.color-my-pencils")
+		-- colors = require("lualine.themes." .. colors)
+        -- -- local colorscheme = require(colors..".colors")
+
         local colors = {
             blue = "#65D1FF",
             green = "#3EFFDC",

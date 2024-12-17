@@ -3,6 +3,9 @@ return {
 		'ajmwagar/vim-deus',
 	},
 	{
+		"itsjunetime/rose-pine-vim"
+	},
+	{
 		'folke/tokyonight.nvim',
 	},
 	{

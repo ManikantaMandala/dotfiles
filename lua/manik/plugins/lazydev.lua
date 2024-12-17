@@ -28,12 +28,17 @@ return {
 
 		require('mason').setup({})
 		require('mason-lspconfig').setup({
-			-- Replace the language servers listed here
-			-- with the ones you want to install
-			ensure_installed = { 'tsserver', 'rust_analyzer' },
-			automatic_installation = true,
+			ensure_installed = {"jdtls", "ts_ls"},
 			handlers = {
-				lsp_zero.default_setup,
+				-- this first function is the "default handler"
+				-- it applies to every language server without a "custom handler"
+				function(server_name)
+					require('lspconfig')[server_name].setup({})
+				end,
+
+				-- this is the "custom handler" for `jdtls`
+				-- noop is an empty function that doesn't do anything
+				jdtls = lsp_zero.noop,
 			},
 		})
 
@@ -57,42 +62,32 @@ return {
 					select = true
 				})
 			}),
-			sources = cmp.config.sources({
-				{ name = 'nvim_lsp',  group_index = 2 },
-				{ name = 'luasnip',   group_index = 2 }, -- For luasnip users.
-				{ name = 'copilot',   group_index = 2 }, -- Copilot_cmp
-				{ name = 'vsnip',     group_index = 2 }, -- For vsnip users.
-				{ name = 'ultisnips', group_index = 2 }, -- For ultisnips users.
-				{ name = 'buffer',    group_index = 2 },
-				{ name = 'snippy',    group_index = 2 },
-			}),
-			formatting = {
-				-- should show the label and the details
-				format = lspkind.cmp_format({
-					mode = "symbol",
-					max_width = 50,
-					show_labelDetails = true,
-					symbol_map = {
-						luasnip = "[LuaSnip]",
-						Copilot = "[Copilot]",
-						nvim_lsp = "[LSP]",
-						vsnip = "[VSnip]",
-						ultisnips = "[UltiSnips]",
-						buffer = "[Buffer]",
-						snippy = "[Snippy]",
-					}
-				})
-			},
-		})
-
-		lsp_zero.set_preferences({
-			suggest_lsp_servers = false,
-			sign_icons = {
-				error = 'E',
-				warn = 'W',
-				hint = 'H',
-				info = 'I'
-			}
+			-- sources = cmp.config.sources({
+			-- 	{ name = 'nvim_lsp',  group_index = 2 },
+			-- 	{ name = 'luasnip',   group_index = 2 }, -- For luasnip users.
+			-- 	{ name = 'copilot',   group_index = 2 }, -- Copilot_cmp
+			-- 	{ name = 'vsnip',     group_index = 2 }, -- For vsnip users.
+			-- 	{ name = 'ultisnips', group_index = 2 }, -- For ultisnips users.
+			-- 	{ name = 'buffer',    group_index = 2 },
+			-- 	{ name = 'snippy',    group_index = 2 },
+			-- }),
+			-- formatting = {
+			-- 	-- should show the label and the details
+			-- 	format = lspkind.cmp_format({
+			-- 		mode = "symbol",
+			-- 		max_width = 50,
+			-- 		show_labelDetails = true,
+			-- 		symbol_map = {
+			-- 			luasnip = "[LuaSnip]",
+			-- 			Copilot = "[Copilot]",
+			-- 			nvim_lsp = "[LSP]",
+			-- 			vsnip = "[VSnip]",
+			-- 			ultisnips = "[UltiSnips]",
+			-- 			buffer = "[Buffer]",
+			-- 			snippy = "[Snippy]",
+			-- 		}
+			-- 	})
+			-- },
 		})
 
 		lsp_zero.setup()
