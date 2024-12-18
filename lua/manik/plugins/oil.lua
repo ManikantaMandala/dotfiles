@@ -1,11 +1,19 @@
 return {
   'stevearc/oil.nvim',
-  ---@module 'oil'
-  ---@type oil.SetupOpts
-  opts = {},
-  -- Optional dependencies
   dependencies = {
 	  { "echasnovski/mini.icons" }
   },
-  -- dependencies = { "nvim-tree/nvim-web-devicons" }, -- use if prefer nvim-web-devicons
+  config = function ()
+	-- oil configuration
+	local oil = require("oil")
+	oil.setup({
+		default_file_explorer = true,
+		view_options={
+			show_hidden = true
+		}
+	})
+
+	--keymaps
+	vim.keymap.set('n', '<leader>pv', '<cmd>Oil<CR>', { desc = "open [P]re[V]iew of directory" })
+  end
 }

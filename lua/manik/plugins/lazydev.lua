@@ -1,122 +1,23 @@
 return {
-	'VonHeikemen/lsp-zero.nvim',
-	dependencies = {
-		{ 'williamboman/mason.nvim' },
-		{ 'williamboman/mason-lspconfig.nvim' },
-		{ 'neovim/nvim-lspconfig' },
-		{ 'SirVer/ultisnips' },
-		{ 'hrsh7th/cmp-nvim-lsp' },
-		{ 'hrsh7th/nvim-cmp' },
-		{ 'hrsh7th/cmp-vsnip' },
-		{ 'saadparwaiz1/cmp_luasnip' },
-		{ 'hrsh7th/cmp-buffer' },
-		{ 'quangnguyen30192/cmp-nvim-ultisnips' },
-		{ 'dcampos/nvim-snippy' },
-		{ 'dcampos/cmp-snippy' },
-		-- language linter
-		{ 'onsails/lspkind.nvim' },
-		{ 'prisma/vim-prisma' }
-	},
-	config = function()
-		local lsp_zero = require('lsp-zero')
-
-		lsp_zero.on_attach(function(client, bufnr)
-			-- see :help lsp-zero-keybindings
-			-- to learn the available actions
-			lsp_zero.default_keymaps({ buffer = bufnr })
-		end)
-
-		require('mason').setup({})
-		require('mason-lspconfig').setup({
-			ensure_installed = {"jdtls", "ts_ls"},
-			handlers = {
-				-- this first function is the "default handler"
-				-- it applies to every language server without a "custom handler"
-				function(server_name)
-					require('lspconfig')[server_name].setup({})
-				end,
-
-				-- this is the "custom handler" for `jdtls`
-				-- noop is an empty function that doesn't do anything
-				jdtls = lsp_zero.noop,
-			},
-		})
-
-		local cmp = require('cmp')
-		local cmp_action = require('lsp-zero').cmp_action()
-		local lspkind = require('lspkind')
-
-		cmp.setup({
-			window = {
-				completion = cmp.config.window.bordered(),
-				documentation = cmp.config.window.bordered(),
-			},
-			mapping = cmp.mapping.preset.insert({
-				['<C-space>'] = cmp.mapping.complete(),
-				['<C-f>'] = cmp_action.luasnip_jump_forward(),
-				['<C-b>'] = cmp_action.luasnip_jump_backward(),
-				['<C-u>'] = cmp.mapping.scroll_docs(-4),
-				['<C-d>'] = cmp.mapping.scroll_docs(4),
-				['<C-a>'] = cmp.mapping.confirm({
-					behavior = cmp.ConfirmBehavior.Replace,
-					select = true
-				})
-			}),
-			-- sources = cmp.config.sources({
-			-- 	{ name = 'nvim_lsp',  group_index = 2 },
-			-- 	{ name = 'luasnip',   group_index = 2 }, -- For luasnip users.
-			-- 	{ name = 'copilot',   group_index = 2 }, -- Copilot_cmp
-			-- 	{ name = 'vsnip',     group_index = 2 }, -- For vsnip users.
-			-- 	{ name = 'ultisnips', group_index = 2 }, -- For ultisnips users.
-			-- 	{ name = 'buffer',    group_index = 2 },
-			-- 	{ name = 'snippy',    group_index = 2 },
-			-- }),
-			-- formatting = {
-			-- 	-- should show the label and the details
-			-- 	format = lspkind.cmp_format({
-			-- 		mode = "symbol",
-			-- 		max_width = 50,
-			-- 		show_labelDetails = true,
-			-- 		symbol_map = {
-			-- 			luasnip = "[LuaSnip]",
-			-- 			Copilot = "[Copilot]",
-			-- 			nvim_lsp = "[LSP]",
-			-- 			vsnip = "[VSnip]",
-			-- 			ultisnips = "[UltiSnips]",
-			-- 			buffer = "[Buffer]",
-			-- 			snippy = "[Snippy]",
-			-- 		}
-			-- 	})
-			-- },
-		})
-
-		lsp_zero.setup()
-
-		vim.diagnostic.config({
-			virtual_text = true
-		})
-		vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, {})
-		vim.keymap.set('n', 'gd', vim.lsp.buf.definition, {})
-		vim.keymap.set('n', 'K', vim.lsp.buf.hover, {})
-		vim.keymap.set('n', 'gti', vim.lsp.buf.implementation, {})
-
-		vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, { desc = 'Go to previous [D]iagnostic message' })
-		vim.keymap.set('n', ']d', vim.diagnostic.goto_next, { desc = 'Go to next [D]iagnostic message' })
-		vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float, { desc = 'Show diagnostic [E]rror messages' })
-		vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostic [Q]uickfix list' })
-
-		vim.keymap.set('n', '<C-k>', vim.lsp.buf.signature_help, {})
-		vim.keymap.set('n', '<space>wa', vim.lsp.buf.add_workspace_folder, {})
-		vim.keymap.set('n', '<space>wr', vim.lsp.buf.remove_workspace_folder, {})
-		vim.keymap.set('n', '<space>wl', function()
-			print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
-		end, {})
-		vim.keymap.set('n', '<space>D', vim.lsp.buf.type_definition, {})
-		vim.keymap.set('n', '<space>rn', vim.lsp.buf.rename, {})
-		vim.keymap.set({ 'n', 'v' }, '<space>cc', vim.lsp.buf.code_action, {})
-		vim.keymap.set('n', 'gr', vim.lsp.buf.references, {})
-		vim.keymap.set('n', '<leader>gf', function()
-			vim.lsp.buf.format { async = true }
-		end, {})
-	end
+  {
+    "folke/lazydev.nvim",
+    ft = "lua", -- only load on lua files
+    opts = {
+      library = {
+        -- See the configuration section for more details
+        -- Load luvit types when the `vim.uv` word is found
+        { path = "${3rd}/luv/library", words = { "vim%.uv" } },
+      },
+    },
+  },
+  { -- optional cmp completion source for require statements and module annotations
+    "hrsh7th/nvim-cmp",
+    opts = function(_, opts)
+      opts.sources = opts.sources or {}
+      table.insert(opts.sources, {
+        name = "lazydev",
+        group_index = 0, -- set group index to 0 to skip loading LuaLS completions
+      })
+    end,
+  },
 }

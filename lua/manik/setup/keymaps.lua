@@ -48,12 +48,7 @@ vim.api.nvim_set_keymap("n", "<leader>t", "<cmd>tabedit %<CR>",
 --get Prettier(gp)
 -- vim.api.nvim_set_keymap("n", "<leader>gp", "<cmd>Prettier<CR>", keymap_description("[G]et [P]rettier file"))
 
---Telescope live grep(lg)
-vim.api.nvim_set_keymap("n", "<leader>lg", "<cmd>Telescope live_grep<cr>", keymap_description("open [L]ive [G]rep"))
-vim.api.nvim_set_keymap("n", "<leader>bi", "<cmd>Telescope builtin<cr>", keymap_description("open [B]uilt [I]n"))
 
---nvim-tree find file toggle
-vim.api.nvim_set_keymap('n', '<leader>pv', '<cmd>Oil<CR>', keymap_description("open [P]re[V]iew of directory"))
 
 --fugitive git status(gs)
 vim.api.nvim_set_keymap("n", "<leader>gs", "<cmd>Git<CR>", keymap_description("show the [G]it [S]tatus"));

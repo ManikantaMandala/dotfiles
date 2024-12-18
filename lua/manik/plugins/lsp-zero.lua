@@ -18,6 +18,7 @@ return {
 		{ 'prisma/vim-prisma' }
 	},
 	config = function()
+		-- LPS configuration
 		local lsp_zero = require('lsp-zero')
 
 		lsp_zero.on_attach(function(client, bufnr)
@@ -26,17 +27,19 @@ return {
 			lsp_zero.default_keymaps({ buffer = bufnr })
 		end)
 
+		-- LSP installation setup
 		require('mason').setup({})
 		require('mason-lspconfig').setup({
 			-- Replace the language servers listed here
 			-- with the ones you want to install
-			ensure_installed = { 'rust_analyzer' },
+			ensure_installed = { 'ts_ls', 'rust_analyzer' },
 			automatic_installation = true,
 			handlers = {
 				lsp_zero.default_setup,
 			},
 		})
 
+		-- Completions 
 		local cmp = require('cmp')
 		local cmp_action = require('lsp-zero').cmp_action()
 		local lspkind = require('lspkind')
@@ -68,6 +71,8 @@ return {
 			}),
 			formatting = {
 				-- should show the label and the details
+				fields = { 'abbr', 'kind', 'menu' },
+				expandable_indicator = true,
 				format = lspkind.cmp_format({
 					mode = "symbol",
 					max_width = 50,
@@ -87,6 +92,7 @@ return {
 
 		lsp_zero.setup()
 
+		-- LSP keymap setup
 		vim.diagnostic.config({
 			virtual_text = true
 		})
