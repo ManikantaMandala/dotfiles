@@ -1,3 +1,6 @@
-require('mani.lazy')
-require('mani.color-my-pencils')
-require('mani.core')
+require("manik.lazy")
+require("manik.setup")
+
+vim.keymap.set("n", "<space><space>x", "<cmd>source %<CR>")
+vim.keymap.set("n", "<space>x", ":.lua<CR>")
+vim.keymap.set("v", "<space>x", ":lua<CR>")
