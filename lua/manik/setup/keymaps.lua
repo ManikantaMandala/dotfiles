@@ -1,5 +1,5 @@
 function keymap_description(description)
-    return {desc = description, noremap=true, silent=true}
+  return { desc = description, noremap = true, silent = true }
 end
 
 local opts = { noremap = true, silent = true }
@@ -18,33 +18,33 @@ local keymap = vim.api.nvim_set_keymap
 
 -- Normal --
 vim.api.nvim_set_keymap("n", "<Esc>", "<cmd>nohlsearch<CR>"
-	, keymap_description("no highlight search after escape"))
+, keymap_description("no highlight search after escape"))
 -- Resize with arrows:
 vim.api.nvim_set_keymap("n", "<Up>", "<cmd>resize +2<CR>"
-	, keymap_description("make the current buffer bigger by increasing vertically upward"))
+, keymap_description("make the current buffer bigger by increasing vertically upward"))
 vim.api.nvim_set_keymap("n", "<Down>", "<cmd>resize -2<CR>"
-	, keymap_description("make the current buffer bigger by increasing vertically downward"))
+, keymap_description("make the current buffer bigger by increasing vertically downward"))
 vim.api.nvim_set_keymap("n", "<Left>", "<cmd>vertical resize +2<CR>"
-	, keymap_description("make the current buffer bigger by increasing horizontally left"))
+, keymap_description("make the current buffer bigger by increasing horizontally left"))
 vim.api.nvim_set_keymap("n", "<Right>", "<cmd>vertical resize -2<CR>"
-	, keymap_description("make the current buffer bigger by increasing horizontally right"))
+, keymap_description("make the current buffer bigger by increasing horizontally right"))
 --Terminal commands in nvim
 vim.api.nvim_set_keymap("n", "<C-d>", "<C-d>zz", opts)
 vim.api.nvim_set_keymap("n", "<C-u>", "<C-u>zz", opts)
 vim.api.nvim_set_keymap("n", "n", "nzzzv", opts)
 vim.api.nvim_set_keymap("n", "N", "Nzzzv", opts)
 vim.api.nvim_set_keymap("n", "<C-f>", "<cmd>silent !tmux neww tmux-sessionizer<CR>"
-	,keymap_description("make new tmux sessionizer") )
+, keymap_description("make new tmux sessionizer"))
 vim.api.nvim_set_keymap("n", "<C-j>", "<cmd>cp<CR>zz", opts)
 vim.api.nvim_set_keymap("n", "<C-k>", "<cmd>cnext<CR>zz", opts)
 vim.api.nvim_set_keymap("n", "<leader>k", "<cmd>lnext<CR>zz", opts)
 vim.api.nvim_set_keymap("n", "<leader>j", "<cmd>lprev<CR>zz", opts)
 -- open leetcode list
 vim.api.nvim_set_keymap("n", "<leader>ll", '<cmd>execute "e ~/.leetcode" <bar> LeetCodeList<CR>'
-	, keymap_description("show [L]eetcode[L]ist"))
+, keymap_description("show [L]eetcode[L]ist"))
 -- open current buffer in new tab
 vim.api.nvim_set_keymap("n", "<leader>t", "<cmd>tabedit %<CR>",
-	keymap_description("make the current buffer to open in new tab"))
+  keymap_description("make the current buffer to open in new tab"))
 --get Prettier(gp)
 -- vim.api.nvim_set_keymap("n", "<leader>gp", "<cmd>Prettier<CR>", keymap_description("[G]et [P]rettier file"))
 
@@ -53,7 +53,8 @@ vim.api.nvim_set_keymap("n", "<leader>t", "<cmd>tabedit %<CR>",
 --fugitive git status(gs)
 vim.api.nvim_set_keymap("n", "<leader>gs", "<cmd>Git<CR>", keymap_description("show the [G]it [S]tatus"));
 --Toggle gitsigns
-vim.api.nvim_set_keymap('n', '<leader>tgs', '<cmd>lua toggle_gitsigns()<CR>', keymap_description("[T]oggle [G]it [S]tatus"))
+vim.api.nvim_set_keymap('n', '<leader>tgs', '<cmd>lua toggle_gitsigns()<CR>',
+  keymap_description("[T]oggle [G]it [S]tatus"))
 --Toggle codeium_enabled
 vim.api.nvim_set_keymap('n', '<leader>tc', '<cmd>lua toggle_codeium()<CR>', keymap_description("[T]oggle [C]odeium AI"))
 
@@ -75,15 +76,15 @@ vim.api.nvim_set_keymap("x", "<Leader>dp", '\"_dp', opts)
 vim.api.nvim_set_keymap("x", "<A-j>", ":move '>+1<CR>gv=gv", opts)
 vim.api.nvim_set_keymap("x", "<A-k>", ":move '<-2<CR>gv=gv", opts)
 vim.api.nvim_set_keymap("x", "K", ":move '<-2<CR>gv=gv"
-	, keymap_description("indent the selected block if moved downward [K]"))
+, keymap_description("indent the selected block if moved downward [K]"))
 vim.api.nvim_set_keymap("x", "J", ":move '>+1<CR>gv=gv"
-	, keymap_description("indent the selected block if moved upward [J]"))
+, keymap_description("indent the selected block if moved upward [J]"))
 
 vim.api.nvim_create_autocmd("TextYankPost", {
-	desc = "Highlights when yanking (copying) text",
-	callback = function()
-		vim.hl.on_yank()
-	end
+  desc = "Highlights when yanking (copying) text",
+  callback = function()
+    vim.hl.on_yank()
+  end
 })
 
 --Insert mode
